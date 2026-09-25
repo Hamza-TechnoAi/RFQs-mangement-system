@@ -3,7 +3,7 @@
 A full-stack quotation-request management portal for assigning RFQs, tracking progress, recording submission details, and managing team access.
 ## Screenshots
 
-![RFQ Management System](https://github.com/Hamza-TechnoAi/RFQs-mangement-system/blob/main/rfq.png)
+![RFQ Management System](https://github.com/Hamza-TechnoAi/RFQs-mangement-system/blob/main/rfqs.jpeg)
 ## Features
 
 - Role-based authentication for administrators and team members
