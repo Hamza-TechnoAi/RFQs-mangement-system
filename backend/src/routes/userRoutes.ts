@@ -1,0 +1,12 @@
+import { Router } from "express";
+import { changePassword, createUser, deleteUser, getUserById, getUsers, updateUser } from "../controllers/userController";
+import { adminOnly, protect } from "../middleware/authMiddleware";
+import { validateObjectId } from "../middleware/securityMiddleware";
+const router = Router();
+router.get("/", protect, getUsers);
+router.get("/:id", protect, adminOnly, validateObjectId(), getUserById);
+router.post("/", protect, adminOnly, createUser);
+router.put("/:id", protect, adminOnly, validateObjectId(), updateUser);
+router.delete("/:id", protect, adminOnly, validateObjectId(), deleteUser);
+router.put("/me/password", protect, changePassword);
+export default router;

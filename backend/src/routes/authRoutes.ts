@@ -1,0 +1,11 @@
+import { Router } from "express";
+import rateLimit from "express-rate-limit";
+import { googleLogin, login, logout, me } from "../controllers/authController";
+import { protect } from "../middleware/authMiddleware";
+const router = Router();
+const loginLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: 10, standardHeaders: "draft-8", legacyHeaders: false, message: { success: false, message: "Too many sign-in attempts. Please try again later." } });
+router.post("/login", loginLimiter, login);
+router.post("/google", loginLimiter, googleLogin);
+router.get("/me", protect, me);
+router.post("/logout", protect, logout);
+export default router;
